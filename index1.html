@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Nithin, Computer Science graduate specializing in Python development, REST APIs, FastAPI, SQL, and backend systems.">
+    <title>Nithin.dev</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Education section */
+        .education-section {
+            padding: 20px 0 100px;
+            background-color: var(--bg-color);
+        }
+
+        .education-container {
+            width: min(700px, 100%);
+            min-height:40x;
+            margin: 0 ;
+            padding: 40px;
+            background-color: #FFFFFF;
+            border: 1px solid rgba(43, 38, 32, 0.14);
+            border-radius: 16px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 20px rgba(30, 27, 24, 0.05);
+        }
+
+        .education-title {
+            margin: 0 0 36px;
+            color: #2B2620;
+            font-size: clamp(2.25rem, 4vw, 3rem);
+            line-height: 1.2;
+            font-family: var(--font-serif);
+            font-weight: 700;
+        }
+
+        .education-timeline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 10px;
+            width: 2px;
+            background-color: #D4B483;
+        }
+
+        .education-entry {
+            position: relative;
+            padding: 0 0 42px 40px;
+        }
+
+        .education-entry:last-child {
+            padding-bottom: 0;
+        }
+
+        .education-dot {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            z-index: 1;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #B37A44;
+        }
+
+        .education-date {
+            margin: 0 0 8px;
+            color: #756D64;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .education-institution {
+            margin: 0 0 4px;
+            color: #2B2620;
+            font-family: var(--font-sans);
+            font-size: 1.08rem;
+            font-weight: 700;
+            line-height: 1.45;
+        }
+
+        .education-course,
+        .education-result {
+            margin: 0;
+            color: #756D64;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.65;
+        }
+
+        .education-result {
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .education-section {
+                padding: 10px 0 70px;
+            }
+
+            .education-container {
+                width: 92%;
+                min-height: auto;
+                padding: 35px 25px;
+                border-radius: 18px;
+            }
+
+            .education-title {
+                margin-bottom: 30px;
+                font-size: 2.25rem;
+            }
+
+            .education-entry {
+                padding-left: 32px;
+                padding-bottom: 34px;
+            }
+
+            .education-institution {
+                font-size: 1rem;
+            }
+
+            .education-date,
+            .education-course {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+ <!-- 1. NAVIGATION -->
+<header id="top" class="topbar">
+    <div class="container nav">
+
+        <a href="#home" class="logo" aria-label="Nithin Home">
+            <span class="monogram">N</span>
+            <span class="logo-name">Nithin</span>
+        </a>
+            <nav aria-label="Primary Navigation">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle color mode">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+                <button id="hamburger" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+            <a href="#about" class="nav-link mobile-nav-link">About</a>
+            <a href="#skills" class="nav-link mobile-nav-link">Skills</a>
+            <a href="#projects" class="nav-link mobile-nav-link">Projects</a>
+            <a href="#education" class="nav-link mobile-nav-link">Education</a>
+            <a href="#contact" class="nav-link mobile-nav-link">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-title">Hi, I&rsquo;m Nithin!</h1>
+                    <p class="hero-intro">
+                        I&rsquo;m a Computer Science Engineering graduate with a strong interest in <strong>Web Development, Cloud Computing, Artificial Intelligence, and Machine Learning</strong>. I&rsquo;m passionate about developing practical solutions, applying problem-solving skills to real-world challenges, and continuously expanding my knowledge of modern technologies to build efficient and impactful applications.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Projects</span>
+                        </a>
+                        <a
+                            href="https://drive.google.com/file/d/1aKwMLGVt5Up0hkHj8zbGti5ZGYsTmCgn/view?usp=sharing"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            <span>Download Resume</span>
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. ABOUT SECTION -->
+        <section id="about" class="about-section">
+            <div class="container about-grid">
+                <div>
+                    <h2 class="section-title projects-title">About</h2>
+                    <p class="about-bio">
+                        My journey in technology started with programming and gradually grew into an interest in how different technologies work together to build real-world solutions.
+                    </p>
+                    <p class="about-bio">
+                        I am working on <strong>Python and backend development</strong>, while exploring <strong>Cloud Computing, Artificial Intelligence, and Machine Learning</strong>. I&rsquo;m particularly interested in learning how applications can be designed to be scalable, efficient, and intelligent.
+                    </p>
+                    <p class="about-bio">
+                        I believe the best way to improve is by <strong>building projects, solving problems, and continuously experimenting with new ideas</strong>. Each project gives me an opportunity to learn something new and strengthen my skills.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. SKILLS & TECHNOLOGIES -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title projects-title">Skills and Tools</h2>
+                <p class="skills-intro">I&rsquo;m continuously developing my technical skills across programming, backend development, cloud technologies, and emerging areas of AI and Machine Learning.</p>
+                <div class="skills-table" aria-label="Technical skills">
+                    <article class="skills-category skills-category-featured">
+                        <h3>Programming &amp; Web Development</h3>
+                        <ul>
+                            <li>Python</li><li>Java</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>FastAPI</li>
+                        </ul>
+                    </article>
+                    <article class="skills-category">
+                        <h3>Backend &amp; Databases</h3>
+                        <ul>
+                            <li>Python Backend Development</li><li>FastAPI</li><li>Django</li><li>SQL</li><li>Database Management</li>
+                        </ul>
+                    </article>
+                    <article class="skills-category">
+                        <h3>Cloud, AI &amp; Core Concepts</h3>
+                        <ul>
+                            <li>Cloud Computing</li><li>Artificial Intelligence</li><li>Machine Learning</li><li>Git &amp; GitHub</li><li>Computer Networks</li><li>Operating Systems</li><li>Data Structures &amp; Algorithms</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PROJECTS -->
+        <section id="projects" class="secondary-projects">
+            <div class="container">
+                <h2 class="section-title projects-title">Projects</h2>
+
+                <div class="project-grid-3">
+                    <article class="project-card">
+                        <figure class="project-preview">
+                            <img src="images/download.png" alt="Weather Forecasting dashboard showing current conditions and forecast data">
+                        </figure>
+                        <h3>Weather Forecasting</h3>
+                        <div class="project-tags"><span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>Weather API</span><span>Geolocation API</span></div>
+                        <p>A web-based weather forecasting application that provides current weather conditions, temperature, humidity, wind information, upcoming forecasts, and historical weather data for different locations.</p>
+                        <div class="project-actions">
+                            <a class="project-github-link" href="https://github.com/NITHIN-85/Weather-Forecasting-" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                            <a class="project-demo-link" href="https://theweatherforecasting.netlify.app" target="_blank" rel="noopener noreferrer">Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <figure class="project-preview">
+                            <img src="images/Capture.PNG" alt="Emotional Analysis interface for Kannada text emotion detection">
+                        </figure>
+                        <h3>Emotional Analysis</h3>
+                        <div class="project-tags"><span>Python</span><span>PyTorch</span><span>Transformers (HuggingFace)</span><span>Pandas</span><span>scikit-learn</span><span>Machine Learning</span></div>
+                        <p>A machine learning project for detecting and classifying emotions in Kannada text using BERT and LSTM-based deep learning techniques.</p>
+                        <div class="project-actions">
+                            <a class="project-github-link" href="https://github.com/NITHIN-85/Emotional-Analysis" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <figure class="project-preview">
+                            <img src="images/51b085c9-af19-450c-96fa-ab918399d5d6.jpg" alt="FarmFlow AgriTech platform analytics dashboard">
+                        </figure>
+                        <h3>FarmFlow — AgriTech Platform</h3>
+                        <div class="project-tags"><span>React.js</span><span>Java</span><span>Spring Boot</span><span>Spring Security</span><span>JWT</span><span>JPA</span><span>H2 Database</span></div>
+                        <p>A full-stack AgriTech platform designed to improve agricultural operations through crop monitoring, supply-chain tracking, analytics, marketplace features, and logistics management.</p>
+                        <div class="project-actions">
+                            <a class="project-github-link" href="https://github.com/NITHIN-85/Agritech" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. EDUCATION SECTION -->
+        <section id="education" class="education-section">
+            <div class="container">
+                <div class="education-container">
+                    <h2 class="education-title">Education</h2>
+
+                    <div class="education-timeline">
+                        <article class="education-entry">
+                            <span class="education-dot" aria-hidden="true"></span>
+                            <div class="education-content">
+                                <p class="education-date">Nov 2022 - Jun 2026</p>
+                                <h3 class="education-institution">Ballari Institute of Technology and Management</h3>
+                                <p class="education-course">B.E. in Computer Science and Engineering | CGPA: 8.76</p>
+                            </div>
+                        </article>
+
+                        <article class="education-entry">
+                            <span class="education-dot" aria-hidden="true"></span>
+                            <div class="education-content">
+                                <p class="education-date">Aug 2020 - Apr 2022</p>
+                                <h3 class="education-institution">Jnanaamrutha PU College, Ballari</h3>
+                                <p class="education-course">PUC | 72%</p>
+                            </div>
+                        </article>
+
+                        <article class="education-entry">
+                            <span class="education-dot" aria-hidden="true"></span>
+                            <div class="education-content">
+                                <p class="education-date">Jun 2019 - Jul 2020</p>
+                                <h3 class="education-institution">Sri Vidyasagara Residential School, Kampli</h3>
+                                <p class="education-course">SSLC | 84%</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CERTIFICATIONS SECTION -->
+    <section id="certifications" class="certifications-section">
+    <div class="container">
+
+        <h2 class="certifications-title">Certifications</h2>
+
+        <p class="certifications-intro">
+            Selected certifications and training programs completed across cloud, AI, and programming topics.
+        </p>
+
+        <div class="certifications-grid">
+
+            <!-- Google Cloud Career Launchpad -->
+            <article class="certification-card">
+                <h3>Google Cloud Career Launchpad</h3>
+                <p>Google</p>
+
+                <a href="https://drive.google.com/file/d/1eo3bOV3OyqxW00WyjmkogMWuGFpCNBA8/view?usp=sharing"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="certificate-link">
+                    View Certificate
+                </a>
+            </article>
+
+
+            <!-- AWS Cloud Quest -->
+            <article class="certification-card">
+                <h3>AWS Cloud Quest</h3>
+                <p>Amazon Web Services</p>
+
+                <a href="https://www.credly.com/badges/c258a491-b706-4078-ae5e-ab76bcaf1b4f/linked_in?t=tjum4a"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="certificate-link">
+                    View Certificate
+                </a>
+            </article>
+
+
+            <!-- AWS Cloud Practitioner Essentials -->
+            <article class="certification-card">
+                <h3>AWS Cloud Practitioner Essentials</h3>
+                <p>AWS</p>
+
+                <a href="https://drive.google.com/file/d/1kJ6Npj22_DMlSV14X2Ka2YneV-RoXC5I/view?usp=sharing"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="certificate-link">
+                    View Certificate
+                </a>
+            </article>
+
+
+            <!-- Salesforce -->
+            <article class="certification-card">
+                <h3>Salesforce Globel</h3>
+                <p>Salesforce</p>
+
+                <a href="https://drive.google.com/file/d/1ONxoWjOvm7c0jkp7RMoBxkRH5yiHP2vr/view?usp=sharing"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="certificate-link">
+                    View Certificate
+                </a>
+            </article>
+
+
+            <!-- Research Paper -->
+            <article class="certification-card">
+                <h3>AI Powered Traffic Violation Detection</h3>
+                <p>Research Paper — IJARCCE</p>
+
+                <a href="https://drive.google.com/file/d/1N8W2AJTYfHoB0vTBnZnleOMzzJcZbpHn/view?usp=sharing"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="certificate-link">
+                    View Research Paper
+                </a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+        <!-- 8. CONTACT SECTION -->
+        <section id="contact" class="contact-section">
+            <div class="container contact-grid">
+                <div>
+                    <h2 class="section-title">Let's Build Something Together.</h2>
+                </div>
+
+                <div class="contact-form-card">
+                    <form id="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Hello Nithin, I'd like to discuss a project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                        <div id="form-status" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">Copyright 2026 Nithin. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/NITHIN-85" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/t-nithin-a931a0388/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+                    <li><a href="https://leetcode.com/u/NITHIN-85/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" title="LeetCode">
+                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M13.48 2.02a1 1 0 0 0-1.42 0L4.7 9.38a5.2 5.2 0 0 0 0 7.36l3.1 3.1a5.2 5.2 0 0 0 7.36 0l.76-.76-1.42-1.42-.76.76a3.2 3.2 0 0 1-4.52 0l-3.1-3.1a3.2 3.2 0 0 1 0-4.52l7.36-7.36a1 1 0 0 0 0-1.42Z"/>
+                            <path fill="currentColor" d="M11.1 12.2h9.8a1 1 0 1 0 0-2h-9.8a1 1 0 1 0 0 2Zm0 4h7.2a1 1 0 1 0 0-2h-7.2a1 1 0 1 0 0 2Z"/>
+                        </svg>
+                    </a></li>
+<li>
+    <a href="https://www.hackerrank.com/nithint912"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="HackerRank"
+       title="HackerRank">
+
+        <svg viewBox="0 0 24 24"
+             width="20"
+             height="20"
+             aria-hidden="true"
+             focusable="false">
+            
+            <path fill="currentColor"
+                  d="M0 0v24h24V0zm9.95 8.002h1.805c.061 0 .111.05.111.111v7.767c0 .061-.05.111-.11.111H9.95c-.061 0-.111-.05-.111-.11v-2.87H7.894v2.87c0 .06-.05.11-.11.11H5.976a.11.11 0 01-.11-.11V8.112c0-.061.05-.11.11-.11h1.806c.061 0 .11.05.11.11v2.869H9.84v-2.87c0-.061.05-.11.11-.11zm2.999 0h5.778c.061 0 .111.05.111.11v7.767a.11.11 0 01-.11.112h-5.78a.11.11 0 01-.11-.11V8.111a.11.11 0 01.11-.11z"/>
+        </svg>
+
+    </a>
+</li>
+                        </svg>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Popup Dialog -->
+    <div id="modal-overlay" class="modal-overlay" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button id="modal-close" class="modal-close" aria-label="Close dialog"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="modal-title" style="font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 16px;">Title</h3>
+            <div id="modal-body">Body content</div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
